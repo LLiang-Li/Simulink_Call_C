@@ -1,0 +1,19 @@
+
+%implements Sfunc_Call_c "C"
+
+%% Function: BlockTypeSetup ===============================================
+%function BlockTypeSetup (block, system) void
+
+%<LibAddToCommonIncludes("ex_myTypes_LCT.h")>
+
+%endfunction
+
+%% Function: Outputs ======================================================
+%function Outputs (block, system) Output
+    %assign p = LibBlockInputSignalAddr(0, "", "", 0)
+    %assign u = LibBlockInputSignalAddr(1, "", "", 0)
+    %assign y = LibBlockOutputSignalAddr(0, "", "", 0)
+    
+    myFcn(%<u>, %<p>, %<y>);
+
+%endfunction

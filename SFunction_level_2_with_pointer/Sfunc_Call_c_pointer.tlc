@@ -1,0 +1,26 @@
+
+%implements Sfunc_Call_c_pointer "C"
+
+%% Function: BlockTypeSetup ===============================================
+%function BlockTypeSetup (block, system) void
+
+%<LibAddToCommonIncludes("data_array.h")>
+
+%endfunction
+
+%% Function: Start ========================================================
+
+
+
+%% Function: Outputs ======================================================
+%function Outputs (block, system) Output
+
+    %assign u = LibBlockInputSignalAddr(0, "", "", 0)
+   
+    %assign y = LibBlockOutputSignal(0, "", "", 0)
+    
+    DataArray data;
+    data.length = %<LibBlockInputSignalWidth(0)>;
+    data.pData = %<u>;
+    %<y> = data_sum(data);
+%endfunction
